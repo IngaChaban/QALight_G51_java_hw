@@ -17,12 +17,18 @@ public class UserInfo {
     public static void main(String[] args) {
 
         UserInfo user = new UserInfo("Brian", "Moor", 38, "Ireland");
-        System.out.println();
+
         System.out.println("User name: " + user.firstname);
         System.out.println("User last name: " + user.lastname);
         System.out.println("Age: " + user.age);
         System.out.println("Country: " + user.country);
-        System.out.println("Welcome Brian!");
-    }
 
+        if (user.age >= 18) {
+            System.out.println("Access: Allowed");
+        } else {
+            System.out.println("Access: Denied");
+        }
+        System.out.println("Welcome " + user.firstname + "!");
+
+    }
 }
