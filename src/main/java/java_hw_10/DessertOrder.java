@@ -2,25 +2,24 @@ package java_hw_10;
 
 public class DessertOrder extends Order {
 
-    private String dessertName;
+    private DessertType type;
 
-    public DessertOrder(int orderNumber, String drinkType, String dessertName) {
-        super(orderNumber, drinkType);
-        this.dessertName = dessertName;
+    public DessertOrder(int orderNumber, DessertType type) {
+        super(orderNumber);
+        this.type= type;
     }
 
-    public String getDessertName() {
-
-        return dessertName;
+    public DessertType getType() {
+        return type;
     }
 
     @Override
     public double getPrice() {
-        if ("cheesecake".equals(dessertName)) {
+        if (type == DessertType.BROWNIE) {
             return 5.00;
-        } else if ("ice cream".equals(dessertName)) {
+        } else if (type == DessertType.CHEESECAKE) {
             return 3.00;
-        } else if ("brownie".equals(dessertName)) {
+        } else if (type == DessertType.TIRAMISU) {
             return 6.00;
         } else {
             return 0;
@@ -30,7 +29,7 @@ public class DessertOrder extends Order {
     @Override
     public void printOrderInfo() {
         System.out.println("Order number: " + getOrderNumber() + " | Order status: " + getStatus() +
-                " | Dessert: " + getDessertName() + " | Price: €" + getPrice());
+                " | Dessert type: " + getType() + " | Price: €" + getPrice());
     }
 }
 
