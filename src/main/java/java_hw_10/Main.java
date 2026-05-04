@@ -1,5 +1,10 @@
 package java_hw_10;
 
+import java_hw_10.enums.*;
+import java_hw_10.exceptions.DuplicateOrderException;
+import java_hw_10.exceptions.NoOrdersException;
+import java_hw_10.exceptions.OrderNotFoundException;
+
 public class Main {
     public static void main(String[] args) {
 

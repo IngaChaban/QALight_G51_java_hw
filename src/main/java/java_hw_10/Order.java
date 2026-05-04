@@ -1,6 +1,8 @@
 package java_hw_10;
 
 
+import java_hw_10.enums.OrderStatus;
+
 public abstract class Order implements Printable, Priceable {
 
 

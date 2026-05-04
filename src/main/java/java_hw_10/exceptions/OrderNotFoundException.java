@@ -1,4 +1,4 @@
-package java_hw_10;
+package java_hw_10.exceptions;
 
 public class OrderNotFoundException extends Exception {
     public OrderNotFoundException(String message) {

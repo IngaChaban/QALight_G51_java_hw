@@ -1,5 +1,7 @@
 package java_hw_10;
 
+import java_hw_10.enums.DessertType;
+
 public class DessertOrder extends Order {
 
     private DessertType type;

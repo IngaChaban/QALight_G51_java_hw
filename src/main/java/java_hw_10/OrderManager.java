@@ -1,5 +1,10 @@
 package java_hw_10;
 
+import java_hw_10.enums.OrderStatus;
+import java_hw_10.exceptions.DuplicateOrderException;
+import java_hw_10.exceptions.NoOrdersException;
+import java_hw_10.exceptions.OrderNotFoundException;
+
 import java.util.ArrayList;
 import java.util.List;
 
