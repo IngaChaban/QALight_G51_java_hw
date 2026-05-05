@@ -1,5 +1,10 @@
 package java_hw_10;
 
+import java_hw_10.enums.OrderStatus;
+import java_hw_10.exceptions.DuplicateOrderException;
+import java_hw_10.exceptions.NoOrdersException;
+import java_hw_10.exceptions.OrderNotFoundException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +28,7 @@ public class OrderManager {
 
         double total = 0;
         for (int i = 0; i < orders.size(); i++) {
-            if (orders.get(i).getStatus() == Order.OrderStatus.NEW) {
+            if (orders.get(i).getStatus() == OrderStatus.NEW) {
                 total += orders.get(i).getPrice();
             }
         }
@@ -39,15 +44,12 @@ public class OrderManager {
         throw new OrderNotFoundException("Order number " + orderNumber + " not found");
     }
 
-    List<Order> getOrdersByStatus(String status) throws InvalidOrderStatusException {
-        if (!status.equals("NEW") && !status.equals("CANCELED") && !status.equals("COMPLETED")) {
-            throw new InvalidOrderStatusException("Invalid order status");
+    List<Order> getOrdersByStatus(OrderStatus status) {
 
-        }
         List<Order> result = new ArrayList<>();
 
         for (Order order : orders) {
-            if (order.getStatus().name().equals(status)) {
+            if (order.getStatus() == status) {
                 result.add(order);
             }
         }

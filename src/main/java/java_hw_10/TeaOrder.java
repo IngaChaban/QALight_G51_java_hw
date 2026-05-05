@@ -1,26 +1,27 @@
 package java_hw_10;
 
+import java_hw_10.enums.TeaType;
+
 public class TeaOrder extends Order {
 
-    private String type;
+    private TeaType type;
 
-    public TeaOrder(int orderNumber, String drinkType, String type) {
-        super(orderNumber, drinkType);
+    public TeaOrder(int orderNumber, TeaType type) {
+        super(orderNumber);
         this.type = type;
     }
 
-    public String getType() {
-
+    public TeaType getType() {
         return type;
     }
 
     @Override
     public double getPrice() {
-        if ("green".equals(type)) {
+        if (type == TeaType.BLACK) {
             return 2.00;
-        } else if ("black".equals(type)) {
+        } else if (type == TeaType.GREEN) {
             return 3.00;
-        } else if ("herbal".equals(type)) {
+        } else if (type == TeaType.HERBAL) {
             return 3.00;
         } else {
             return 0;
@@ -31,7 +32,7 @@ public class TeaOrder extends Order {
     @Override
     public void printOrderInfo() {
         System.out.println("Order number: " + getOrderNumber() + " | Order status: " + getStatus() +
-                " | Drink type: " + getType() + " " + getDrinkType() + " | Price: €" + getPrice());
+                " | Tea type: " + getType() + " | Price: €" + getPrice());
     }
 }
 

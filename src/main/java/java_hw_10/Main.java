@@ -1,16 +1,22 @@
 package java_hw_10;
 
+import java_hw_10.enums.*;
+import java_hw_10.exceptions.DuplicateOrderException;
+import java_hw_10.exceptions.NoOrdersException;
+import java_hw_10.exceptions.OrderNotFoundException;
+
 public class Main {
     public static void main(String[] args) {
+
         OrderManager orderManager = new OrderManager();
 
-        CoffeeOrder coffee1 = new CoffeeOrder("medium", 67, "latte");
-        CoffeeOrder coffee2 = new CoffeeOrder("large", 72, "cappuccino");
-        TeaOrder tea1 = new TeaOrder(68, "tea", "black");
-        TeaOrder tea2 = new TeaOrder(69, "tea", "herbal");
-        DessertOrder dessert1 = new DessertOrder(70, "", "cheesecake");
-        DessertOrder dessert2 = new DessertOrder(71, "", "brownie");
-        DessertOrder dessert3 = new DessertOrder(73, "", "ice cream");
+        CoffeeOrder coffee1 = new CoffeeOrder(CoffeeSize.MEDIUM, 67, CoffeeType.CAPPUCCINO);
+        CoffeeOrder coffee2 = new CoffeeOrder(CoffeeSize.LARGE, 72, CoffeeType.LATTE);
+        TeaOrder tea1 = new TeaOrder(68, TeaType.BLACK);
+        TeaOrder tea2 = new TeaOrder(69, TeaType.HERBAL);
+        DessertOrder dessert1 = new DessertOrder(70, DessertType.BROWNIE);
+        DessertOrder dessert2 = new DessertOrder(71, DessertType.CHEESECAKE);
+        DessertOrder dessert3 = new DessertOrder(73, DessertType.TIRAMISU);
 
         try {
             orderManager.addOrder(coffee1);
@@ -21,22 +27,28 @@ public class Main {
             orderManager.addOrder(dessert2);
             orderManager.addOrder(dessert3);
             orderManager.addOrder(tea2);
+
         } catch (DuplicateOrderException ex) {
             System.out.println("Error: " + ex.getMessage());
         }
+
+        orderManager.getOrdersByStatus(OrderStatus.NEW);
+        coffee1.printOrderInfo();
+        coffee2.printOrderInfo();
+        tea1.printOrderInfo();
+        tea2.printOrderInfo();
+        dessert1.printOrderInfo();
+        dessert2.printOrderInfo();
+        dessert3.printOrderInfo();
 
         try {
             Order found = orderManager.findOrderByNumber(89);
             found.printOrderInfo();
         } catch (OrderNotFoundException ex) {
-            System.out.println("Error: " +  ex.getMessage());
-        }
-        try {
-
-            orderManager.getOrdersByStatus("INVALID");
-        } catch (InvalidOrderStatusException ex) {
             System.out.println("Error: " + ex.getMessage());
         }
+
+
         try {
             OrderManager empty = new OrderManager();
             empty.calculateTotal();
@@ -53,4 +65,5 @@ public class Main {
 
     }
 }
+
 

@@ -1,26 +1,34 @@
 package java_hw_10;
 
+import java_hw_10.enums.CoffeeSize;
+import java_hw_10.enums.CoffeeType;
+
 public class CoffeeOrder extends Order {
 
-    private String size;
+    private CoffeeSize size;
+    private CoffeeType type;
 
-    public CoffeeOrder(String size, int orderNumber, String drinkType) {
-        super(orderNumber, drinkType);
+    public CoffeeOrder(CoffeeSize size, int orderNumber, CoffeeType type) {
+        super(orderNumber);
         this.size = size;
+        this.type = type;
     }
 
-    public String getSize() {
+    public CoffeeType getType() {
+        return type;
+    }
 
+    public CoffeeSize getSize() {
         return size;
     }
 
     @Override
     public double getPrice() {
-        if ("small".equals(size)) {
+        if (size == CoffeeSize.SMALL) {
             return 3.0;
-        } else if ("medium".equals(size)) {
+        } else if (size == CoffeeSize.MEDIUM) {
             return 4.0;
-        } else if ("large".equals(size)) {
+        } else if (size == CoffeeSize.LARGE) {
             return 5.0;
         } else {
             return 0;
@@ -29,9 +37,8 @@ public class CoffeeOrder extends Order {
 
     @Override
     public void printOrderInfo() {
-        System.out.println("Order number: " + getOrderNumber() + " | Order status: " + getStatus() + " | Drink size: " + getSize() +
-                " | Drink type: " + getDrinkType() +
-                " | Price: €" + getPrice());
+        System.out.println("Order number: " + getOrderNumber() + " | Order status: " + getStatus()
+                + " | Coffee type: " + getType() + " |  Size: " + getSize() +  " | Price: €" + getPrice());
     }
 }
 
