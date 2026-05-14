@@ -1,4 +1,4 @@
-package aqa_hw_2;
+package aqa_hw_15;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -37,8 +37,8 @@ public class LegoCategoriesMenuVerification {
 
             for (String word : searchWords) {
 
-                WebElement categories = driver.findElement(
-                        By.xpath("//*[contains(text(),'" + word + "')]"));
+                WebElement categories = categoryWindow.findElement(
+                        By.xpath(".//*[contains(text(),'" + word + "')]"));
 
                 Assert.assertTrue("The categories isn't displayed",categories.isDisplayed());
             }
