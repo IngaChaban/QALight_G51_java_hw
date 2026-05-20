@@ -10,7 +10,7 @@ import java.time.Duration;
 
 
 public class AmazonCartCountVerification {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args)  {
 
         String searchWord = "toothbrush";
 

@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class AmazonNewReleasesPageVerification {
-    public static void main(String[] args) throws InterruptedException{
+    public static void main(String[] args){
 
         WebDriver driver = new ChromeDriver();
         WebDriverWait waiter = new WebDriverWait(driver, Duration.ofSeconds(10));
