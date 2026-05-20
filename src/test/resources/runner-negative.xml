@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Negative Tests Suite">
+
+    <test name="Negative Tests">
+
+        <groups>
+            <run>
+                <include name="negative"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="aqa_hw_17.DeliveryLocationTests"/>
+            <class name="aqa_hw_17.SignInAndPrimeTests"/>
+            <class name="aqa_hw_17.ShoppingCartTests"/>
+        </classes>
+
+    </test>
+
+</suite>
